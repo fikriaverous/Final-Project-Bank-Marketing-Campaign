@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+</head>
+<body>
+<form action="http://127.0.0.1:5000/" method="POST">
+    <div class="col s12 cyan lighten-2">
+        <center>
+            <h1>Client Prediction</h1>
+        </center>
+    </div>
+    <div>
+        <center>
+            <h3>{{hasil}}</h3>
+        </center>
+    </div>
+    <h4>Client's Profile</h4>
+    <blockquote>
+        Age: Client's age.<br>
+        Job: Type of job.<br>
+        Marital: Marital status.<br>
+        Education: Client's Education.<br>
+    </blockquote>
+    <div class="input-field col s12">
+        <input class="validate" id="age" name="age" type="number">
+        <label for="age">Age</label>
+    </div>
+    <div class="input-field col s12">
+        <select class="browser-default" name="job">
+            <option value="" disabled selected>Job</option>
+            {% for item in job %}
+            <option value="{{item}}">{{item}}</option>{% endfor %}
+        </select>
+    </div>
+    <div class="input-field col s12">
+        <select class="browser-default" name="marital">
+            <option value="" disabled selected>Marital</option>
+            {% for item1 in marital %}
+            <option value="{{item1}}">{{item1}}</option>{% endfor %}
+        </select>
+    </div>
+    <div class="input-field col s12">
+        <select class="browser-default" name="education">
+            <option value="" disabled selected>Education</option>
+            {% for item2 in education %}
+            <option value="{{item2}}">{{item2}}</option>{% endfor %}
+        </select>
+    </div>
+    <br>
+    <h4>Client's Financial Status</h4>
+    <blockquote>
+        Default: Has credit in default?<br>
+        Housing: Has housing loan?<br>
+        Loan: Has personal loan?<br>
+        Balance: Balance of the individual.<br>
+    </blockquote>
+    <div class="input-field col s12">
+        <input class="validate" id="balance" name="balance" type="number">
+        <label for="balance">Balance</label>
+    </div>
+    <div class="input-field col s12">
+        <select class="browser-default" name="default">
+            <option value="" disabled selected>Default</option>
+            {% for item3 in default %}
+            <option value="{{item3}}">{{item3}}</option>{% endfor %}
+        </select>
+    </div>
+    <div class="input-field col s12">
+        <select class="browser-default" name="housing">
+            <option value="" disabled selected>Housing</option>
+            {% for item4 in housing %}
+            <option value="{{item4}}">{{item4}}</option>{% endfor %}
+        </select>
+    </div>
+    <div class="input-field col s12">
+        <select class="browser-default" name="loan">
+            <option value="" disabled selected>Loan</option>
+            {% for item5 in loan %}
+            <option value="{{item5}}">{{item5}}</option>{% endfor %}
+        </select>
+    </div>
+    <br>
+    <h4>Current Campaign</h4>
+    <blockquote>
+        Contact: Contact communication type.<br>
+        Campaign: Number of contacts performed during this campaign and for this client.<br>
+        Duration: Last contact duration, in seconds.<br>
+        Day: Last contact day.<br>
+        Month: Last contact month.<br>
+    </blockquote>
+    <div class="input-field col s12">
+        <select class="browser-default" name="contact">
+            <option value="" disabled selected>Contact</option>
+            {% for item6 in contact %}
+            <option value="{{item6}}">{{item6}}</option>{% endfor %}
+        </select>
+    </div>
+    <div class="input-field col s12">
+        <input class="validate" id="campaign" name="campaign" type="number">
+        <label for="campaign">Campaign</label>
+    </div>
+        <div class="input-field col s12">
+        <input class="validate" id="duration" name="duration" type="number">
+        <label for="duration">Duration</label>
+    </div>
+    <div class="input-field col s12">
+        <input class="validate" id="day" name="day" type="number">
+        <label for="day">Day</label>
+    </div>
+    <div class="input-field col s12">
+        <select class="browser-default" name="month">
+            <option value="" disabled selected>Month</option>
+            {% for item7 in month %}
+            <option value="{{item7}}">{{item7}}</option>{% endfor %}
+        </select>
+    </div>
+    <br>
+    <h4>Previous Campaign</h4>
+    <blockquote>
+    Previous: Number of contacts performed before this campaign and for this client.<br>
+    </blockquote>
+    <div class="input-field col s12">
+        <input class="validate" id="previous" name="previous" type="number">
+        <label for="previous">Previous</label>
+    </div>
+    <div class="row">
+        <center>
+        <button class="btn waves-effect waves-light" type="submit">
+            <i class="fas fa-calculator"> PREDICT!</i>
+        </button>
+        </center>
+    </div>
+</form>
+</body>
+</html>
